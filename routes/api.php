@@ -23,5 +23,6 @@ Route::group(['prefix' => 'libraries'], function () {
     Route::group(['prefix' => 'actions'], function () {
         Route::get('find/{book:name}', [LibraryController::class, 'search']);
         Route::put('update/{book:name}', [LibraryController::class, 'update']);
+        Route::delete('destroy/{book:name}', [LibraryController::class, 'destroy']);
     });
 });

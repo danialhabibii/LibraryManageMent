@@ -35,4 +35,10 @@ class LibraryController extends Controller
         $updateBookAction->execute($book, $request->validated());
         return $this->ok();
     }
+
+    public function destroy(Book $book)
+    {
+        $book->delete();
+        return $this->ok();
+    }
 }
