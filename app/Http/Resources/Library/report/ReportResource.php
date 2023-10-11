@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Resources\Library;
+namespace App\Http\Resources\Library\report;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class BookResource extends JsonResource
+class ReportResource extends JsonResource
 {
+
     public function toArray(Request $request): array
     {
         return [
-            'book_info'=>$this->resource,
+            'total_books' => $this->resource,
         ];
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Action\library\Book\CreateBookAction;
 use App\Action\library\Book\UpdateBookAction;
+use App\Http\Requests\Library\Book\CreateBookRequest;
 use App\Http\Requests\Library\Book\UpdateBookRequest;
 use App\Http\Resources\Library\BookResource;
 use App\Models\Book;
@@ -21,6 +23,12 @@ class LibraryController extends Controller
         return $this->ok(
             BookResource::make($books),
         );
+    }
+
+    public function create(CreateBookRequest $request, CreateBookAction $createBookAction)
+    {
+        $createBookAction->execute($request->validated());
+        return $this->created();
     }
 
     public function search(Book $book)
